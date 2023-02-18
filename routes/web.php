@@ -7,9 +7,9 @@ use App\Http\Controllers\DepaController;
 Route::get('/menu', function () {
     return view('menu');
 });
+
 //usuarios
 Route::get('clientes', [ClienteController::class, 'index'])->name('clientes.index');
-
 Route::get('clientes/create', [ClienteController::class, 'create'])->name('clientes.create');
 Route::post('clientes', [ClienteController::class, 'store'])->name('clientes.store');
 Route::get('clientes/{cliente}', [ClienteController::class, 'show'])->name('clientes.show');
@@ -26,3 +26,12 @@ Route::get('depas/{depa}', [DepaController::class, 'show'])->name('depas.show');
 Route::get('depas/{depa}/edit', [DepaController::class, 'edit'])->name('depas.edit');
 Route::put('depas/{depa}', [DepaController::class, 'update'])->name('depas.update');
 Route::delete('depas/{depa}', [DepaController::class, 'destroy'])->name('depas.destroy');
+
+//login 
+Route::get('/', function () {
+    return view('login');
+});
+
+Route::get('/registrar', function () {
+    return view('register');
+});

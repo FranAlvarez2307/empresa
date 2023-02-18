@@ -1,25 +1,29 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\depa;
+
 use Illuminate\Http\Request;
 
-class DepaController extends Controller
+class LoginController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $depas = depa::orderBy('id','desc')->paginate();
-        return view('depaIndex',compact('depas'));
+        //
     }
 
-    /**zz
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('depaCreate');
+        //
     }
 
     /**
@@ -30,18 +34,8 @@ class DepaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nombre'=>'required'
-        ]);
-            $depa = new depa();
-        $depa->nombre = $request->nombre;
-        
-        
-        $depa->save();
-        return redirect()->route('depas.index');
+        //
     }
-
-   
 
     /**
      * Display the specified resource.
@@ -49,10 +43,9 @@ class DepaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($depa)
+    public function show($id)
     {
-        $depa = Depa::find($depa);
-        return view ('depaShow', compact('depa'));
+        //
     }
 
     /**
@@ -61,9 +54,9 @@ class DepaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Depa $depa)
+    public function edit($id)
     {
-        return view('depaEdit',compact('depa'));
+        //
     }
 
     /**
@@ -73,15 +66,9 @@ class DepaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Depa $depa)
+    public function update(Request $request, $id)
     {
-       
-        $depa->nombre = $request->nombre;
-        
-       
-
-        $depa->save();
-        return redirect()->route('depas.show',$depa);
+        //
     }
 
     /**
@@ -90,9 +77,8 @@ class DepaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Depa $depa)
+    public function destroy($id)
     {
-        $depa->delete();
-        return redirect()->route('depas.index');
+        //
     }
 }
