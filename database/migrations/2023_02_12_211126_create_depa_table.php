@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\depa;
+use Illuminate\Database\Schema\Blueprint;
+use App\Models\login;
 
-return new class extends Migration
+
+class CreateLoginTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +15,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('depas', function (Blueprint $table) {
+        Schema::create('login', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->string('apellidos');
+            $table->string('correo');
+            $table->string('telefono');
             $table->timestamps();
+            $table->string('nombreUsuario');
+            $table->string('contraseña');
         });
     }
 
@@ -28,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('depas');
+        Schema::dropIfExists('login');
     }
 };

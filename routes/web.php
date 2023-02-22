@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DepaController;
+use App\Http\Controllers\LoginController;
 
 Route::get('/menu', function () {
     return view('menu');
@@ -27,11 +28,9 @@ Route::get('depas/{depa}/edit', [DepaController::class, 'edit'])->name('depas.ed
 Route::put('depas/{depa}', [DepaController::class, 'update'])->name('depas.update');
 Route::delete('depas/{depa}', [DepaController::class, 'destroy'])->name('depas.destroy');
 
-//login 
-Route::get('/', function () {
-    return view('login');
-});
+//login y registro
+Auth::routes();
 
-Route::get('/registrar', function () {
-    return view('register');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/logout', 'LogoutController@perform')->name('logout.perform');

@@ -42,20 +42,14 @@ class ClienteController extends Controller
             
             'correo'=>'required',
             'contraseña'=>'required|max:9']);
-            $cliente = new cliente();
+        $cliente = new cliente();
         $cliente->nombre = $request->nombre;
-        
         $cliente->puesto = $request->puesto;
-       
         $cliente->correo = $request->correo;
         $cliente->contraseña = $request->contraseña;
-
         $cliente->save();
         return redirect()->route('clientes.index');
     }
-
-   
-
     /**
      * Display the specified resource.
      *
