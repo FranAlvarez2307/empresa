@@ -21,7 +21,7 @@
 
 
         <br>
-        <button type="submit" style="background-color:#805266">Guardar</button>
-        <button><a href="{{route('depas.index')}}" type="submit" style="background-color:#805266">Volver</a></button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button><a href="{{route('depas.index')}}" type="submit" class="btn btn-primary">Volver</a></button>
     </form>
     @endsection

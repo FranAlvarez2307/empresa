@@ -7,9 +7,7 @@
 <h1>DEPARTAMENTO</h1>
 
 <br>
-<button><a href = "{{route('depas.edit',$depa)}}" type="submit" style="background-color:#805266" >Editar</a></button>
-<br>
-<br>
+<a href = "{{route('depas.edit',$depa)}}" type="submit" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Editar</a>
 <p><strong>Nombre: </strong>{{$depa->nombre}}</p>
 
 
@@ -18,8 +16,8 @@
 <form action="{{route('depas.destroy',$depa)}}" method="post">
 @csrf
 @method('delete')
-<button type="submit" style="background-color:#805266">Eliminar</button> 
-<button ><a href="{{route('depas.index')}}" type="submit" style="background-color:#805266">Volver</a></button>
+<button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Eliminar</button> 
+<a href="{{route('depas.index')}}" type="submit" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Volver</a>
 <br>
 
 </form>
