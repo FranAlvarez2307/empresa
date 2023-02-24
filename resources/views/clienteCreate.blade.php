@@ -21,7 +21,7 @@
         <br>
 
         <label>
-           Puesto:
+            Puesto:
             <br>
             <input type="text" name="puesto" value="{{old('puesto')}}">
         </label>
@@ -29,9 +29,6 @@
         <small>*{{$message}}</small>
         @enderror
         <br>
-
-        
-       
         
         <label>
             Correo:
@@ -44,7 +41,7 @@
         <br>
 
         <label>
-            contraseña:
+            Contraseña:
             <br>
             <input type="number" name="contraseña" value="{{old('contraseña')}}">
         </label>
@@ -54,7 +51,7 @@
         <br>
 
         <br>
-        <button type="submit" style="background-color:#805266">Guardar</button>
-        <button><a href="{{route('clientes.index')}}" type="submit" style="background-color:#805266">Volver</a></button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{{route('clientes.index')}}" type="submit" class="text-white btn btn-primary">Volver</a>
     </form>
     @endsection

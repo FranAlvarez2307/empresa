@@ -20,7 +20,7 @@
         <br>
         
         <label>
-            puesto:
+            Puesto:
             <br>
             <input type="text" name="puesto" value="{{old('puesto', $cliente->puesto)}}">
         </label>
@@ -40,7 +40,7 @@
         <br>
 
         <label>
-            contraseña:
+            Contraseña:
             <br>
             <input type="number" name="contraseña" value="{{old('contraseña', $cliente->contraseña)}}">
         </label>
@@ -50,7 +50,7 @@
         <br>
 
         <br>
-        <button type="submit" style="background-color:#805266"> Actualizar </button>
+        <button type="submit" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"> Actualizar </button>
     </form>
     @endsection
 
