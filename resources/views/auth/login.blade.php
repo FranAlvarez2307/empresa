@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('body')
 <div class="container">
     <div class="row justify-content-center">
@@ -55,7 +56,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
+                                <a href="/register" class="btn btn-primary">
+                                    {{ __('Registrar') }}
+                                </button>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}

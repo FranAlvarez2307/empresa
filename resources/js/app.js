@@ -4,9 +4,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+
 import './bootstrap';
 import { createApp } from 'vue';
 import 'flowbite';
+
 
 
 /**
@@ -39,3 +41,4 @@ app.component('example-component', ExampleComponent);
  */
 
 app.mount('#app');
+

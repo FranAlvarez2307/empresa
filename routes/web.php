@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DepaController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\TicketController;
 
 Route::get('/menu', function () {
     return view('menu');
@@ -28,8 +30,20 @@ Route::get('depas/{depa}/edit', [DepaController::class, 'edit'])->name('depas.ed
 Route::put('depas/{depa}', [DepaController::class, 'update'])->name('depas.update');
 Route::delete('depas/{depa}', [DepaController::class, 'destroy'])->name('depas.destroy');
 
+//tickets
+Route::get('tickets', [TicketController::class, 'index'])->name('tickets.index');
+Route::get('tickets/ticket', [TicketController::class, 'create'])->name('tickets.create');
+Route::post('tickets', [TicketController::class, 'store'])->name('tickets.store');
+Route::get('tickets/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
+Route::get('tickets/{ticket}/edit', [TicketController::class, 'edit'])->name('tickets.edit');
+Route::put('tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
+Route::delete('tickets/{ticket}', [TicketController::class, 'destroy'])->name('tickets.destroy');
+
 //login y registro
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+
+Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
