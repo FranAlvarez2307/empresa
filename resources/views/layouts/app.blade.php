@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @vite(['resources/css/app.css','resources/js/app.js'])
@@ -20,19 +21,28 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])    
     
 </head>
-<body style="background-color:#B08A9A">
+
+<body style="background-color:#9CA3AF">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 @guest 
+                 
                     @if (Route::has('login'))
+                    
                         <a class="navbar-brand" href="{{ url('/login') }}">
                             {{ config('Macuin Dashboard', 'Macuin Dashboard') }}
+                            
                         </a>
+                        
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                             <span class="navbar-toggler-icon"></span>
                         </button>
+                        
+
+
                     @endif
+                    
 
                 @else
                     <a class="navbar-brand" href="{{ url('/login') }}">
@@ -57,13 +67,16 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
+                                
                             @endif
+                            
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
+                            
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -89,5 +102,6 @@
         </nav>
     </div>
     @yield('body')
+    
 </body>
 </html>

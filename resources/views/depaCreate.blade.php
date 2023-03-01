@@ -2,7 +2,7 @@
 @section('title', 'Macuin')
 
 @section('body')
-
+<center>
 <h1>CREAR</h1>
     <!-- Formulario para crear estudiante -->
     <br>
@@ -24,4 +24,5 @@
         <button type="submit" class="btn btn-primary">Guardar</button>
         <button><a href="{{route('depas.index')}}" type="submit" class="btn btn-primary">Volver</a></button>
     </form>
+</center>
     @endsection

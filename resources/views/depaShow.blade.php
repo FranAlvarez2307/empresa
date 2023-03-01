@@ -2,7 +2,7 @@
 @section('title', 'Macuin')
 
 @section('body')
-
+<center>
 <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 <h1>DEPARTAMENTO</h1>
 
@@ -21,5 +21,5 @@
 <br>
 
 </form>
-
+</center>
 @endsection

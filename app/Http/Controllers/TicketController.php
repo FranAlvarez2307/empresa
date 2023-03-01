@@ -57,9 +57,10 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($ticket)
     {
-        //
+        $ticket = ticket::find($ticket);
+        return view ('ticketShow', compact('ticket'));
     }
 
     /**
@@ -68,9 +69,9 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit( ticket $ticket)
     {
-        //
+        return view('ticketEdit',compact('ticket'));
     }
 
     /**
@@ -80,9 +81,16 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, ticket $ticket)
     {
-        //
+        $ticket->autor = $request->autor;
+        $ticket->departamento = $request->departamento;
+        $ticket->clasificacion = $request->clasificacion;
+        $ticket->detalles = $request->detalles;
+    
+
+        $ticket->save();
+        return redirect()->route('tickets.show',$ticket);
     }
 
     /**
@@ -91,8 +99,9 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( ticket $ticket)
     {
-        //
+        $ticket->delete();
+        return redirect()->route('tickets.index');
     }
 }

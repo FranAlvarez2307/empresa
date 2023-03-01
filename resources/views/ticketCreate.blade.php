@@ -3,7 +3,7 @@
 @section('title', 'Macuin')
 
 @section('body')
-
+<center>
 <h1>CREAR</h1>
     <!-- Formulario para crear estudiante -->
     <br>
@@ -13,7 +13,7 @@
         <label>
             Autor:
             <br>
-            <input type="text" name="autor" value="{{old('nombre')}}">
+            <input type="text" name="autor" value="{{old('autor')}}">
         </label>
         @error('autor')
         <small>*{{$message}}</small>
@@ -23,7 +23,7 @@
         <label>
             Departamento:
             <br>
-            <input type="text" name="departamento" value="{{old('puesto')}}">
+            <input type="text" name="departamento" value="{{old('departamento')}}">
         </label>
         @error('departamento')
         <small>*{{$message}}</small>
@@ -33,7 +33,7 @@
         <label>
             Clasificación:
             <br>
-            <input type="text" name="clasificacion" value="{{old('correo')}}">
+            <input type="text" name="clasificacion" value="{{old('clasificacion')}}">
         </label>
         @error('clasificacion')
         <small>*{{$message}}</small>
@@ -43,7 +43,7 @@
         <label>
             Detalles:
             <br>
-            <input type="text" name="detalles" value="{{old('contraseña')}}">
+            <input type="text" name="detalles" value="{{old('detalles')}}">
         </label>
         @error('detalles')
         <small>*{{$message}}</small>
@@ -64,4 +64,5 @@
         <button type="submit" class="btn btn-primary">Guardar</button>
         <a href="{{route('tickets.index')}}" type="submit" class="text-white btn btn-primary">Volver</a>
     </form>
+            </center>
     @endsection

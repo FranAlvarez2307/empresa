@@ -4,55 +4,55 @@
 
 @section('body')
 <center>
-<h1>EDITAR CLIENTE</h1>
+<h1>EDITAR</h1>
     <!-- Formulario para crear cliente -->
     <br>
-    <form method="post" action="{{route('clientes.update', $cliente)}}">
+    <form method="post" action="{{route('tickets.update', $ticket)}}">
         @csrf
         @method('put')
         <label>
-            Nombre:
+        Autor:
             <br>
-            <input type="text" name="nombre" value="{{old('nombre', $cliente->nombre)}}">
+            <input type="text" name="Autor" value="{{old('autor', $ticket->autor)}}">
         </label>
-        @error('nombre')
+        @error('autor')
         <small>*{{$message}}</small>
         @enderror
         <br>
         
         <label>
-            Puesto:
+        Departamento:
             <br>
-            <input type="text" name="puesto" value="{{old('puesto', $cliente->puesto)}}">
+            <input type="text" name="departamento" value="{{old('departamento', $ticket->departamento)}}">
         </label>
-        @error('puesto')
+        @error('departamento')
         <small>*{{$message}}</small>
         @enderror
         <br>
         
         <label>
-            Correo:
+        clasificacion:
             <br>
-            <input type="email" name="correo" value="{{old('correo', $cliente->correo)}}">
+            <input type="email" name="clasificacion" value="{{old('clasificacion', $ticket->clasificacion)}}">
         </label>
-        @error('correo')
+        @error('clasificacion')
         <small>*{{$message}}</small>
         @enderror
         <br>
 
         <label>
-            Contraseña:
+        detalles:
             <br>
-            <input type="number" name="contraseña" value="{{old('contraseña', $cliente->contraseña)}}">
+            <input type="number" name="detalles" value="{{old('detalles', $ticket->detalles)}}">
         </label>
-        @error('contraseña')
+        @error('detalles')
         <small>*{{$message}}</small>
         @enderror
         <br>
 
         <br>
         <button type="submit" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"> Actualizar </button>
+        <a href="{{route('tickets.index')}}" type="submit" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Volver</a>
     </form>
 </center>
     @endsection
-

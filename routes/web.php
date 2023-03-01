@@ -39,11 +39,16 @@ Route::get('tickets/{ticket}/edit', [TicketController::class, 'edit'])->name('ti
 Route::put('tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
 Route::delete('tickets/{ticket}', [TicketController::class, 'destroy'])->name('tickets.destroy');
 
+
+
 //login y registro
 Auth::routes();
+
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 
 Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
+
+//comentarios 
