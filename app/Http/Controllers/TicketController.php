@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use App\Models\depa;
+use App\Models\Cliente;
 
 class TicketController extends Controller
 {
@@ -24,7 +26,9 @@ class TicketController extends Controller
      */
     public function create()
     {
-        return view('ticketCreate');
+        $clientes = Cliente::all();
+        $depa = depa::all();
+        return view('ticketCreate', compact('depa','clientes'));
     }
 
     /**
@@ -39,14 +43,16 @@ class TicketController extends Controller
             'autor'=>'required',
             'departamento'=>'required',
             'clasificacion'=>'required',
-            'detalles'=>'required',
-            'estatus'=>'required']);
+            'detalles'=>'required']);
         $ticket = new ticket();
         $ticket->autor = $request->autor;
         $ticket->departamento = $request->departamento;
         $ticket->clasificacion = $request->clasificacion;
         $ticket->detalles = $request->detalles;
-        $ticket->estatus = $request->estatus;
+        $ticket->estatus = 'En Proceso';
+        $ticket->auxiliar= 'Pendiente';
+        $ticket->comentariosToCliente = '';
+        $ticket->comentariosTOauxiliar= '';
         $ticket->save();
         return redirect()->route('tickets.index');
     }
@@ -71,7 +77,9 @@ class TicketController extends Controller
      */
     public function edit( ticket $ticket)
     {
-        return view('ticketEdit',compact('ticket'));
+        $clientes = Cliente::all();
+        $depa = depa::all();
+        return view('ticketEdit',compact('ticket', 'depa','clientes'));
     }
 
     /**
@@ -103,5 +111,12 @@ class TicketController extends Controller
     {
         $ticket->delete();
         return redirect()->route('tickets.index');
+    }
+
+    public function cancelar(ticket $ticket)
+    {
+        $ticket->estatus = 'Cancelador por Cliente';
+        $ticket->save();
+        return redirect()->route('tickets.show',$ticket);
     }
 }

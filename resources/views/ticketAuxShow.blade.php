@@ -46,7 +46,7 @@
             </tr>
         </tbody>
     </table>
-    <br>
+<br>
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
             <tr>
@@ -57,8 +57,11 @@
                     Clasificacion
                 </th>
                 <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
-                    Comentarios
-    
+                    Comentarios Jefe
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Comentarios Auxiliar
+
                 </th>
             </tr>
         </thead>
@@ -70,9 +73,12 @@
                 <td class="px-6 py-4">
                 {{$ticket->clasificacion}}
                 </td>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                {{$ticket->comentariosToAuxiliar}}
+                </td>
+                <td class="px-6 py-4">
                 {{$ticket->comentariosToCliente}}
-                </th>
+                </td>
             </tr>
             
             </tr>
@@ -80,18 +86,10 @@
     </table>
 </div>
 <br>
-
-
-
-<a href = "{{route('tickets.edit',$ticket)}}" type="submit" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Editar</a>
-
-<form action="{{route('tickets.cancelar',$ticket)}}" method="post">
-    @csrf
-    @method('post')
-
-    <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Cancelar</button> 
-</form>
-
-<a href="{{route('tickets.index')}}" type="submit" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Volver</a>
+<a href = "{{route('ticketsAux.edit',$ticket)}}" type="submit" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Control del ticket</a>
+<br>
+<a href = "{{route('ticketsAux.reporte',$ticket)}}" target="_blank" type="submit" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Generar Reporte</a>
+<br>
+<a href="{{route('ticketsAux.index')}}" type="submit" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Volver</a>
 </center>
 @endsection

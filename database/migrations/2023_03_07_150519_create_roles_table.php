@@ -13,16 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tickets', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('autor');
-            $table->string('auxiliar');
-            $table->string('departamento');
-            $table->string('clasificacion');
-            $table->string('detalles');
-            $table->string('estatus');
-            $table->string('comentariosToAuxiliar');
-            $table->string('comentariosToCliente');
+            $table->string('name');
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -34,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ticket');
+        Schema::dropIfExists('roles');
     }
 };
